@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0a09" />
+    <meta name="description" content="Jeu de défis, de tacles et de confessions pour couples et groupes d'amis. Rien n'est enregistré." />
+    <title>Tacle ou Vérité</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Tacle ou Vérité" />
+    <meta property="og:title" content="Tacle ou Vérité" />
+    <meta property="og:description" content="Tacles, confessions et défis pour couples et groupes d'amis. Rien n'est enregistré." />
+    <meta property="og:locale" content="fr_FR" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Applique le thème choisi avant le premier affichage (évite un flash sombre/clair) -->
+    <script>
+      try {
+        var p = JSON.parse(localStorage.getItem('tov-prefs') || '{}');
+        if (p.theme === 'dark' || p.theme === 'light') document.documentElement.setAttribute('data-theme', p.theme);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

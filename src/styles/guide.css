@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Guides : bouton « ? » à côté de chaque jeu et fenêtre de règles
+   ========================================================================== */
+.gameitem {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.gameitem .gamebtn {
+  flex: 1;
+  min-width: 0;
+}
+.rules {
+  flex: 0 0 44px;
+  height: 44px;
+  align-self: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent-ink);
+  font: 800 1.25rem var(--font-display);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    background var(--dur-base) var(--ease-out),
+    transform var(--dur-press) var(--ease-out);
+}
+.rules:active {
+  transform: scale(0.96);
+}
+@media (hover: hover) {
+  .rules:hover {
+    border-color: var(--accent-line);
+    background: var(--surface-raised);
+  }
+}
+.face.guide {
+  max-width: 560px;
+  max-height: min(88vh, 760px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.guide-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.guide-head h2 {
+  margin: 2px 0 0;
+}
+.ghead {
+  margin: 0 0 8px;
+  font: 700 0.9375rem var(--font-display);
+  letter-spacing: -0.01em;
+}
+.gsteps,
+.gtips {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.gtips li::marker,
+.gsteps li::marker {
+  color: var(--accent-ink);
+  font-weight: 800;
+}
+.gamelinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

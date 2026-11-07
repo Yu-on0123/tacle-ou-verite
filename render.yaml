@@ -1,0 +1,13 @@
+# Blueprint Render : Render lit ce fichier et crée tout le service tout seul.
+# Mode d'emploi dans le README (section « Mettre en ligne sur Render »).
+services:
+  - type: web
+    name: tacle-ou-verite
+    runtime: docker
+    plan: free
+    # Francfort est la région Render la plus proche de l'Afrique de l'Ouest.
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true

@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Mouvement réduit : on garde les retours essentiels (fondu, état), on retire
+   tout déplacement décoratif (web.dev : « reduce », pas forcément « none »).
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .target::after,
+  .rstack::before,
+  .rstack::after {
+    display: none;
+  }
+}

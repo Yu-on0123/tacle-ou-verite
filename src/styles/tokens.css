@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Tacle ou Vérité — tokens (édition 2 : « Scellé, version cinéma »)
+   Une table sombre, des objets en papier épais, un ruban ambré. Un seul accent.
+   Compatibilité : pas de light-dark(), pas de color-mix() (Android bas de gamme).
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* Neutres chauds : la table */
+  --bg: #0b0a09;
+  --bg-subtle: #11100e;
+  --surface: #161411;
+  --surface-raised: #1e1b17;
+  --surface-sunken: #0f0e0c;
+  --border: #2b2722;
+  --border-strong: #3d372f;
+  --text: #f4efe6;
+  --text-muted: #aaa397;
+  --text-subtle: #8c857a;
+
+  /* Accent unique : le ruban */
+  --accent: #ffb224;
+  --accent-hover: #ffc247;
+  --accent-fg: #1a1204;
+  --accent-ink: #ffc24d;
+  --accent-soft: rgba(255, 178, 36, 0.12);
+  --accent-line: rgba(255, 178, 36, 0.32);
+  --accent-glow: rgba(255, 178, 36, 0.28);
+
+  /* Sémantiques */
+  --success: #4ade80;
+  --warning: #f59e0b;
+  --danger: #ff6b5a;
+  --danger-soft: rgba(255, 107, 90, 0.12);
+  --danger-line: rgba(255, 107, 90, 0.36);
+  --info: #5eead4;
+  --info-soft: rgba(94, 234, 212, 0.1);
+  --info-line: rgba(94, 234, 212, 0.3);
+  --ring: #ffc247;
+
+  /* Matière « papier » : en sombre, des cartes sombres à encre claire ; en clair, du papier crème */
+  --paper: #1d1a16;
+  --paper-2: #14120f;
+  --paper-line: rgba(255, 255, 255, 0.055);
+  --paper-edge: rgba(255, 255, 255, 0.13);
+  --ink: #f4efe6;
+  --ink-muted: #aaa397;
+  --ink-subtle: #8c857a;
+  --ink-accent: #ffc24d;
+  --paper-danger: #ff6b5a;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .18 0 0 0 0 .08 0 0 0 .2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-opacity: 0.04;
+
+  /* Profondeur */
+  --shadow-color: 0 0 0;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 10px 30px -10px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 24px 60px -16px rgb(0 0 0 / 0.7);
+  --shadow-paper:
+    inset 0 1px 0 rgb(255 255 255 / 0.07), 0 0 0 1px rgb(255 255 255 / 0.05), 0 22px 36px -18px rgb(0 0 0 / 0.8);
+  --shadow-key:
+    inset 0 1px 0 rgb(255 255 255 / 0.38), inset 0 -2px 0 rgb(0 0 0 / 0.16), 0 10px 24px -10px var(--accent-glow);
+
+  /* Rayons */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Typographie : 2 familles, auto-hébergées */
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', 'DM Sans Variable', system-ui, sans-serif;
+  --font-body: 'DM Sans Variable', 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.75rem;
+
+  /* Espacement (base 4) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* Motion : ease-out marqué (Emil Kowalski), feuille façon iOS, léger rebond pour le tampon */
+  --dur-press: 120ms;
+  --dur-fast: 150ms;
+  --dur-base: 200ms;
+  --dur-slow: 300ms;
+  --dur-scene: 500ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-stamp: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  /* Échelle z */
+  --z-prefs: 40;
+  --z-sheet: 70;
+  --z-toast: 80;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --bg: #f6f2ea;
+    --bg-subtle: #efeadf;
+    --surface: #ffffff;
+    --surface-raised: #fbf8f2;
+    --surface-sunken: #ece6d9;
+    --border: #e4ddcf;
+    --border-strong: #cfc6b4;
+    --text: #17130e;
+    --text-muted: #5a5347;
+    --text-subtle: #655e51;
+    --accent: #f4a300;
+    --accent-hover: #e39800;
+    --accent-ink: #8a5a00;
+    --accent-soft: rgba(244, 163, 0, 0.14);
+    --accent-line: rgba(176, 116, 0, 0.4);
+    --accent-glow: rgba(244, 163, 0, 0.3);
+    --success: #15803d;
+    --warning: #b45309;
+    --danger: #c73a27;
+    --danger-soft: rgba(199, 58, 39, 0.08);
+    --danger-line: rgba(199, 58, 39, 0.4);
+    --info: #0f766e;
+    --info-soft: rgba(15, 118, 110, 0.08);
+    --info-line: rgba(15, 118, 110, 0.35);
+    --ring: #8a5a00;
+    --paper: #fffcf3;
+    --paper-2: #f3ecdc;
+    --paper-line: rgba(74, 54, 18, 0.14);
+    --paper-edge: rgba(74, 54, 18, 0.3);
+    --ink: #1b160d;
+    --ink-muted: #594e3b;
+    --ink-subtle: #655a45;
+    --ink-accent: #7a4f00;
+    --paper-danger: #b3321f;
+    --grain-opacity: 0.07;
+    --shadow-sm: 0 1px 2px rgb(60 40 10 / 0.08);
+    --shadow-md: 0 10px 30px -12px rgb(60 40 10 / 0.18);
+    --shadow-lg: 0 24px 60px -18px rgb(60 40 10 / 0.28);
+    --shadow-paper:
+      inset 0 1px 0 rgb(255 255 255 / 0.9), 0 0 0 1px rgb(74 54 18 / 0.14), 0 18px 30px -16px rgb(60 40 10 / 0.38);
+  }
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f2ea;
+  --bg-subtle: #efeadf;
+  --surface: #ffffff;
+  --surface-raised: #fbf8f2;
+  --surface-sunken: #ece6d9;
+  --border: #e4ddcf;
+  --border-strong: #cfc6b4;
+  --text: #17130e;
+  --text-muted: #5a5347;
+  --text-subtle: #655e51;
+  --accent: #f4a300;
+  --accent-hover: #e39800;
+  --accent-ink: #8a5a00;
+  --accent-soft: rgba(244, 163, 0, 0.14);
+  --accent-line: rgba(176, 116, 0, 0.4);
+  --accent-glow: rgba(244, 163, 0, 0.3);
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #c73a27;
+  --danger-soft: rgba(199, 58, 39, 0.08);
+  --danger-line: rgba(199, 58, 39, 0.4);
+  --info: #0f766e;
+  --info-soft: rgba(15, 118, 110, 0.08);
+  --info-line: rgba(15, 118, 110, 0.35);
+  --ring: #8a5a00;
+  --paper: #fffcf3;
+  --paper-2: #f3ecdc;
+  --paper-line: rgba(74, 54, 18, 0.14);
+  --paper-edge: rgba(74, 54, 18, 0.3);
+  --ink: #1b160d;
+  --ink-muted: #594e3b;
+  --ink-subtle: #655a45;
+  --ink-accent: #7a4f00;
+  --paper-danger: #b3321f;
+  --grain-opacity: 0.07;
+  --shadow-sm: 0 1px 2px rgb(60 40 10 / 0.08);
+  --shadow-md: 0 10px 30px -12px rgb(60 40 10 / 0.18);
+  --shadow-lg: 0 24px 60px -18px rgb(60 40 10 / 0.28);
+  --shadow-paper:
+    inset 0 1px 0 rgb(255 255 255 / 0.9), 0 0 0 1px rgb(74 54 18 / 0.14), 0 18px 30px -16px rgb(60 40 10 / 0.38);
+}
